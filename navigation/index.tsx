@@ -14,6 +14,7 @@ import { SignUpPage } from '../components/UI/auth/SignUpPage';
 
 import Colors from '../constants/Colors';
 import useColorScheme from '../hooks/useColorScheme';
+import { Home } from '../screens/Home';
 import { LoginScreen } from '../screens/LoginScreen';
 import ModalScreen from '../screens/ModalScreen';
 import NotFoundScreen from '../screens/NotFoundScreen';
@@ -69,6 +70,14 @@ function BottomTabNavigator() {
       screenOptions={{
         // tabBarActiveTintColor: Colors[colorScheme].tint,
       }}>
+       <BottomTab.Screen
+        name="Home"
+        component={Home}
+        options={{
+          title: 'Home',
+          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+        }}
+      />
       <BottomTab.Screen
         name="TabOne"
         component={TabOneScreen}

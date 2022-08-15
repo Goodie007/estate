@@ -84,7 +84,7 @@ const Login = () => {
                         fontSize: 14,
                     }}
                     onPress={() => {
-                        navigation.navigate('SignUp')
+                       navigation.navigate("SignUp")
                         console.log('pressed')
                     }}
                 >Sign up</Text>
