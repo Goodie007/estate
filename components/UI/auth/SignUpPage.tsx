@@ -1,9 +1,13 @@
 import React from "react";
 import {View, Text, TextInput, TouchableOpacity} from 'react-native';
+import { ProfileImage } from "./ProfileImage";
+
+interface SignUpPageProps {
+    navigation: any;
+}
 
 
-
-const LoginPage = () => {
+const SignUpPage = ({navigation }: SignUpPageProps) => {
     return (
         <View
             style={{
@@ -23,12 +27,13 @@ const LoginPage = () => {
                     top: 20,
                     margin: 20,
                 }}
-             >Login</Text>
+             >Create new account</Text>
+             <ProfileImage />
              <TextInput
-                placeholder="Email"
+                placeholder="First Name"
                 style={{
                     borderWidth: 1,
-                    height: 30,
+                    height: 40,
                     width: '80%',
                     borderColor: 'grey',
                     borderRadius: 20,
@@ -36,10 +41,10 @@ const LoginPage = () => {
                     paddingLeft: 15,
                 }} />
                  <TextInput
-                    placeholder="Password"
+                    placeholder="Last Name"
                     style={{
                         borderWidth: 1,
-                        height: 30,
+                        height: 40,
                         width: '80%',
                         borderColor: 'grey',
                         borderRadius: 20,
@@ -47,12 +52,36 @@ const LoginPage = () => {
                         marginLeft: 20,
                         paddingLeft: 15,
                     }} />
+                     <TextInput
+                        placeholder="Email"
+                        style={{
+                            borderWidth: 1,
+                            height: 40,
+                            width: '80%',
+                            borderColor: 'grey',
+                            borderRadius: 20,
+                            marginTop: 20,
+                            marginLeft: 20,
+                            paddingLeft: 15,
+                        }} />
+                     <TextInput
+                        placeholder="Password"
+                        style={{
+                            borderWidth: 1,
+                            height: 40,
+                            width: '80%',
+                            borderColor: 'grey',
+                            borderRadius: 20,
+                            marginTop: 20,
+                            marginLeft: 20,
+                            paddingLeft: 15,
+                        }} />
                  <TouchableOpacity
                     style={{
                         top: 20,
-                        backgroundColor: '#4a3af2',
+                        backgroundColor: '#393096',
                         width: '80%',
-                        height: 35,
+                        height: 40,
                         alignItems: 'center',
                         justifyContent: 'center',
                         borderRadius: 20,
@@ -64,7 +93,7 @@ const LoginPage = () => {
                             color: '#fff',
                             fontSize: 14,
                         }}
-                    >Login</Text>
+                    >Sign Up</Text>
                  </TouchableOpacity>
            </View>
             
@@ -72,4 +101,4 @@ const LoginPage = () => {
     )
 }
 
-export { LoginPage };
+export { SignUpPage };
