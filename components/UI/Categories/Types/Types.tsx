@@ -72,7 +72,7 @@ const Types = () => {
            <View
             style={{
                 marginTop: 10,
-                marginLeft: 10,
+                // marginLeft: 10,
             }}
            >
             <Text
