@@ -9,9 +9,12 @@ import { NavigationContainer, DefaultTheme, DarkTheme } from '@react-navigation/
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import * as React from 'react';
 import { ColorSchemeName, Pressable } from 'react-native';
+import { LoginPage } from '../components/UI/auth/LoginPage';
+import { SignUpPage } from '../components/UI/auth/SignUpPage';
 
 import Colors from '../constants/Colors';
 import useColorScheme from '../hooks/useColorScheme';
+import { Home } from '../screens/Home';
 import { LoginScreen } from '../screens/LoginScreen';
 import ModalScreen from '../screens/ModalScreen';
 import NotFoundScreen from '../screens/NotFoundScreen';
@@ -19,6 +22,7 @@ import TabOneScreen from '../screens/TabOneScreen';
 import TabTwoScreen from '../screens/TabTwoScreen';
 import { RootStackParamList, RootTabParamList, RootTabScreenProps } from '../types';
 import LinkingConfiguration from './LinkingConfiguration';
+import { Entypo } from '@expo/vector-icons';
 
 export default function Navigation({ colorScheme }: { colorScheme: ColorSchemeName }) {
   return (
@@ -42,6 +46,9 @@ function RootNavigator() {
     <Stack.Navigator>
       <Stack.Screen name="Root" component={BottomTabNavigator} options={{ headerShown: false }} />
       <Stack.Screen name="NotFound" component={NotFoundScreen} options={{ title: 'Oops!' }} />
+      <Stack.Screen name="SignUp" component={SignUpPage} options={{ title: 'Sign Up' }} />
+      <Stack.Screen name="LoginPage" component={LoginPage} options={{ title: 'Login' }} />
+
       <Stack.Group screenOptions={{ presentation: 'modal' }}>
         <Stack.Screen name="Modal" component={ModalScreen} />
       </Stack.Group>
@@ -64,6 +71,14 @@ function BottomTabNavigator() {
       screenOptions={{
         // tabBarActiveTintColor: Colors[colorScheme].tint,
       }}>
+       <BottomTab.Screen
+        name="Home"
+        component={Home}
+        options={{
+          title: 'Home',
+          tabBarIcon: ({ color }) => <Entypo name="home" size={24} color="blue" />,
+        }}
+      />
       <BottomTab.Screen
         name="TabOne"
         component={TabOneScreen}

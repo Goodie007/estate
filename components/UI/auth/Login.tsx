@@ -1,8 +1,18 @@
 import React from "react";
 import {View, Text, TouchableOpacity} from 'react-native';
+import { NavigationContainer, useNavigation } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { RootStackScreenProps } from '../../../types';
+// import { useRouter } from "solito/router";
+
+interface LoginProps {
+    navigation: any
+}
 
 
 const Login = () => {
+    const  navigation  = useNavigation()
+    
     return (
         <View
             style={{
@@ -19,7 +29,7 @@ const Login = () => {
            >
             <Text
                 style={{
-                    color: 'green',
+                    color: '#4a3af2',
                     fontSize: 28,
                     fontWeight: '600'
                 }}
@@ -31,9 +41,13 @@ const Login = () => {
                 }}
             >use this code base to build your own app</Text>
              <TouchableOpacity
+                onPress={() => {
+                    navigation.navigate('LoginPage')
+                    console.log('pressed')
+                }}
                 style={{
                     top: 20,
-                    backgroundColor: 'green',
+                    backgroundColor: '#4a3af2',
                     width: 250,
                     height: 40,
                     alignItems: 'center',
@@ -58,7 +72,7 @@ const Login = () => {
                     alignItems: 'center',
                     justifyContent: 'center',
                     borderRadius: 20,
-                    borderColor: 'green',
+                    borderColor: '#4a3af2',
                     borderWidth: 1,
                     
 
@@ -66,10 +80,12 @@ const Login = () => {
              >
                 <Text
                      style={{
-                        color: 'green',
+                        color: '#4a3af2',
                         fontSize: 14,
                     }}
                     onPress={() => {
+                       navigation.navigate("SignUp")
+                        console.log('pressed')
                     }}
                 >Sign up</Text>
             </TouchableOpacity>
