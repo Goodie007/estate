@@ -16,28 +16,16 @@ const Types = () => {
         },
         {
           name: 'Send',
-          uri: 'https://res.cloudinary.com/easyshare-africa/image/upload/v1657680127/Frame_1388_1_r4idtw.svg',
+          uri: 'https://i.pinimg.com/1200x/a5/c1/f4/a5c1f47f6b739053b9d4d7869c72f3f7.jpg',
         },
         {
           name: 'Recieve',
-          uri: 'https://res.cloudinary.com/easyshare-africa/image/upload/v1657680274/Frame_1388_2_zzfway.svg',
+          uri: 'https://i.pinimg.com/1200x/a5/c1/f4/a5c1f47f6b739053b9d4d7869c72f3f7.jpg',
         },
         {
             name: 'Buy',
-            uri: 'https://res.cloudinary.com/easyshare-africa/image/upload/v1657680431/Frame_1388_3_xgg3gv.svg',
+            uri: 'https://i.pinimg.com/1200x/a5/c1/f4/a5c1f47f6b739053b9d4d7869c72f3f7.jpg',
           },
-        // {
-        //   name: 'Sell',
-        //   uri: 'https://res.cloudinary.com/easyshare-africa/image/upload/v1658481778/Frame_1388_7_said6q.svg',
-        // },
-        // {
-        //   name: 'Swap',
-        //   uri: 'https://res.cloudinary.com/easyshare-africa/image/upload/v1658481815/Frame_1388_8_g5gybe.svg',
-        // },
-        // {
-        //   name: 'Withdraw',
-        //   uri: 'https://res.cloudinary.com/easyshare-africa/image/upload/v1658481842/Frame_1388_9_jigvmo.svg',
-        // }
         
     ];
 
@@ -46,16 +34,17 @@ const Types = () => {
             <View
                 style={{
                     borderWidth: 1,
-                    marginLeft: 5,
+                    marginRight: 10,
                     borderRadius: 5,
-                    borderColor: 'grey',
+                    borderColor: '#c0c4c2',
                 }}
             >
                 <Image
-                    source={uri}
+                    source={{uri}}
                     style={{
                         width: 100,
                         height: 50,
+                        borderColor: '#c0c4c2'
                     }}
                  />
                  <Text
@@ -77,7 +66,8 @@ const Types = () => {
            >
             <Text
                 style={{
-                    fontWeight: '600'
+                    fontWeight: '600',
+                    marginBottom: 10,
                 }}
             >Categories</Text>
             <FlatList

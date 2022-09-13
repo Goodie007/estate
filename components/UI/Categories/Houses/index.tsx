@@ -2,6 +2,7 @@ import React from "react";
 import {View, Text, FlatList, Image, Pressable,
     ImageProps as DefaultImageProps,
   ImageURISource,
+  ScrollView,
 } from 'react-native';
 import { Button } from "../../Buttons/Button";
 
@@ -19,13 +20,13 @@ const Items: Array<ItemsProps>  = [
     {
         name: '1500 Plk St',
         location: 'San Franscisco',
-        uri: 'https://images.pexels.com/photos/1643389/pexels-photo-1643389.jpeg?auto=compress&cs=tinysrgb&w=600',
+        uri: 'https://images.pexels.com/photos/1643389/pexels-photo-1643389.jpeg',
         ratings: 5,
     },
     {
         name: '1500 Pol St',
         location: 'San Franscisco',
-        uri: 'https://images.pexels.com/photos/1643389/pexels-photo-1643389.jpeg?auto=compress&cs=tinysrgb&w=600',
+        uri: 'https://images.pexels.com/photos/1643389/pexels-photo-1643389.jpeg?',
         ratings: 3,
     },
     {
@@ -48,18 +49,27 @@ const HousesTypes = ({uri, name, location, ratings}: ItemsProps,) => {
             style={{
                 marginBottom: 10,
                 marginTop: 5,
+                marginRight: 10,
+                justifyContent: "center",
             }}
         >
             <Image
-                source={uri}
+                source={{uri}}
                 style={{
-                    width: 200,
+                    width: 165,
                     height: 100,
+                    borderRadius: 3
                 }}
              />
-             <Text>{name}</Text>
-            <Text>{location}</Text>
-            <Text>{ratings}</Text>
+             <View
+                style={{
+                    // justifyContent: "center"
+                }} 
+             >
+                <Text>{name}</Text>
+                <Text>{location}</Text>
+                <Text>{ratings}</Text>
+             </View>
         </View>
     )
 }
@@ -78,7 +88,7 @@ const Houses = () => {
                         fontWeight: '600'
                     }}
                 >Houses</Text>
-                <FlatList
+                 <FlatList
                     data={Items}
                     // horizontal={true}
                     numColumns={2}
@@ -90,7 +100,10 @@ const Houses = () => {
                         </Pressable>
                     )}
                     keyExtractor={ item => item?.name}
-                 />
+                 /> 
+                 {/* <ScrollView key={i}>
+                    {}
+                 </ScrollView> */}
             </View>
             <Button 
                 onPress={undefined} 
@@ -106,7 +119,7 @@ const Houses = () => {
                     textAlign: 'center',
                     justifyContent: 'center',
                     marginRight: 5,
-                    marginTop: 70,
+                    marginTop: 50,
                     }}  
                 label="Show all"
             />
