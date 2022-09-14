@@ -1,5 +1,5 @@
 import React from "react";
-import {View, Text, FlatList, Image, Pressable} from 'react-native';
+import {View, Text, FlatList, Image, Pressable, ImageBackground} from 'react-native';
 
 interface Nav
 {
@@ -8,7 +8,7 @@ interface Nav
 //   style: object;
 }
 
-const Types = () => {
+const Catelogs = () => {
     const nav: Array<Nav> = [
         {
           name: 'Houses',
@@ -25,36 +25,71 @@ const Types = () => {
         {
             name: 'Lands',
             uri: 'https://i.pinimg.com/1200x/a5/c1/f4/a5c1f47f6b739053b9d4d7869c72f3f7.jpg',
-          },
+        },
+        {
+            name: 'Recently Sold',
+            uri: 'https://i.pinimg.com/1200x/a5/c1/f4/a5c1f47f6b739053b9d4d7869c72f3f7.jpg',
+        },
+        {
+            name: 'Rentals',
+            uri: 'https://i.pinimg.com/1200x/a5/c1/f4/a5c1f47f6b739053b9d4d7869c72f3f7.jpg',
+        },
+        {
+            name: 'Buildings',
+            uri: 'https://i.pinimg.com/1200x/a5/c1/f4/a5c1f47f6b739053b9d4d7869c72f3f7.jpg',
+        },
+        {
+            name: 'Town Houses',
+            uri: 'https://i.pinimg.com/1200x/a5/c1/f4/a5c1f47f6b739053b9d4d7869c72f3f7.jpg',
+        },
+
         
     ];
 
     const HouseTypes = ({ uri, name}) => {
         return (
-            <View
+            <ImageBackground
+                source={{ uri }}
                 style={{
                     borderWidth: 1,
+                    // marginTop: 20,
                     marginRight: 10,
+                    marginLeft: 10,
+                    marginBottom: 10,
                     borderRadius: 5,
                     borderColor: '#c0c4c2',
+                    width: 339,
+                    height: 100,
+                    display: 'flex',
+                    backgroundColor: '#141414',
+                    opacity: 0.8,
+                    
                 }}
             >
-                <Image
+                {/* <Image
                     source={{uri}}
                     style={{
-                        width: 100,
-                        height: 50,
+                        width: 339,
+                        height: 100,
                         borderColor: '#c0c4c2'
                     }}
-                 />
-                 <Text
+                 /> */}
+                 <View>
+                  <Text
                     style={{
-                        paddingTop: 5,
-                        marginBottom: 15,
-                        marginLeft: 10,
+                        paddingTop: 40,
+                        // marginBottom: 15,
+                        // marginLeft: 10,
+                        color: '#fff',
+                        fontSize: 14,
+                        fontWeight: '400',
+                        textAlign: 'center',
+                        justifyContent: 'center',
+                        alignItems: 'center'
                     }}
-                 >{name}</Text>
-            </View>
+                 >{name}</Text> 
+                 </View>
+            </ImageBackground>
         )
     }
 
@@ -62,23 +97,23 @@ const Types = () => {
         <View>
            <View
             style={{
-                marginTop: 10,
+                marginTop: 0,
                 // marginLeft: 10,
             }}
            >
-            <Text
+            {/* <Text
                 style={{
                     fontWeight: '600',
                     marginBottom: 10,
                 }}
-            >Categories</Text>
+            >Categories</Text> */}
             <FlatList
                 style={{
-                    overflow: 'hidden',
+                    // overflow: 'scr',
                 }}
                 showsHorizontalScrollIndicator={false}
                  data={nav}
-                 horizontal={true}
+                 horizontal={false}
                  renderItem={({ item, index,  }) => (
                     <Pressable
                         key={item.name}
@@ -93,4 +128,4 @@ const Types = () => {
     )
 }
 
-export { Types };
+export { Catelogs };
