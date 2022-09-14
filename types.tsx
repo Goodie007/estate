@@ -18,7 +18,8 @@ export type RootStackParamList = {
   Modal: undefined;
   NotFound: undefined;
   LoginPage: undefined;
-  SignUp: undefined
+  SignUp: undefined;
+  // Maps: undefined;
   // LoginPage: undefined
 };
 
@@ -33,6 +34,7 @@ export type RootTabParamList = {
   Login: undefined;
   Home: undefined;
   Catelogs: undefined;
+  Maps: undefined;
 };
 
 export type RootTabScreenProps<Screen extends keyof RootTabParamList> = CompositeScreenProps<
