@@ -15,6 +15,7 @@ import { SignUpPage } from '../components/UI/auth/SignUpPage';
 import Colors from '../constants/Colors';
 import useColorScheme from '../hooks/useColorScheme';
 import { Home } from '../screens/Home';
+import { Catelogs } from '../components/UI/Categories/Catelogs';
 import { LoginScreen } from '../screens/LoginScreen';
 import ModalScreen from '../screens/ModalScreen';
 import NotFoundScreen from '../screens/NotFoundScreen';
@@ -22,7 +23,8 @@ import TabOneScreen from '../screens/TabOneScreen';
 import TabTwoScreen from '../screens/TabTwoScreen';
 import { RootStackParamList, RootTabParamList, RootTabScreenProps } from '../types';
 import LinkingConfiguration from './LinkingConfiguration';
-import { Entypo } from '@expo/vector-icons';
+import { Entypo, MaterialIcons } from '@expo/vector-icons';
+// import { MaterialIcons } from '@expo/vector-icons';
 
 export default function Navigation({ colorScheme }: { colorScheme: ColorSchemeName }) {
   return (
@@ -74,17 +76,10 @@ function BottomTabNavigator() {
        <BottomTab.Screen
         name="Home"
         component={Home}
-        options={{
+        options={({ navigation}: RootTabScreenProps<'Home'>) => ({
           title: 'Home',
+          headerTitleAlign: 'center',
           tabBarIcon: ({ color }) => <Entypo name="home" size={24} color="blue" />,
-        }}
-      />
-      <BottomTab.Screen
-        name="TabOne"
-        component={TabOneScreen}
-        options={({ navigation }: RootTabScreenProps<'TabOne'>) => ({
-          title: 'Tab One',
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
           headerRight: () => (
             <Pressable
               onPress={() => navigation.navigate('Modal')}
@@ -101,6 +96,52 @@ function BottomTabNavigator() {
           ),
         })}
       />
+      <BottomTab.Screen
+        name="Catelogs"
+        component={Catelogs}
+        options={({ navigation}: RootTabScreenProps<'Catelogs'>) => ({
+          title: 'Categories',
+          headerTitleAlign: 'center',
+          tabBarIcon: ({ color }) => <MaterialIcons name="category" size={24} color="#0020be" />,
+          headerRight: () => (
+            <Pressable
+              onPress={() => navigation.navigate('Modal')}
+              style={({ pressed }) => ({
+                opacity: pressed ? 0.5 : 1,
+              })}>
+              <FontAwesome
+                name="info-circle"
+                size={25}
+                color={Colors[colorScheme].text}
+                style={{ marginRight: 15 }}
+              />
+            </Pressable>
+          ),
+        })}
+      />
+      {/* <BottomTab.Screen
+        name="TabOne"
+        component={TabOneScreen}
+        options={({ navigation }: RootTabScreenProps<'TabOne'>) => ({
+          title: 'Tab One',
+          headerTitleAlign: 'center',
+          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+          headerRight: () => (
+            <Pressable
+              onPress={() => navigation.navigate('Modal')}
+              style={({ pressed }) => ({
+                opacity: pressed ? 0.5 : 1,
+              })}>
+              <FontAwesome
+                name="info-circle"
+                size={25}
+                color={Colors[colorScheme].text}
+                style={{ marginRight: 15 }}
+              />
+            </Pressable>
+          ),
+        })}
+      /> */}
       <BottomTab.Screen
         name="TabTwo"
         component={TabTwoScreen}
