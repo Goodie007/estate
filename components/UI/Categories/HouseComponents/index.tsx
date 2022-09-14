@@ -1,97 +1,104 @@
 import React from "react";
-import {View, Text, FlatList, Image, Pressable, ImageBackground} from 'react-native';
-import { NavigationContainer, useNavigation } from '@react-navigation/native';
+import {View, Text, FlatList, Image, Pressable,} from 'react-native';
 
 interface Nav
 {
   name: string;
   uri?: string;
+  location?: string;
+  price?: string;
 //   style: object;
 }
 
-const Catelogs = () => {
-    const  navigation  = useNavigation()
+const HouseComponent = () => {
     const nav: Array<Nav> = [
         {
           name: 'Houses',
           uri: 'https://i.pinimg.com/1200x/a5/c1/f4/a5c1f47f6b739053b9d4d7869c72f3f7.jpg',
+          location: 'Agbowo',
+          price: 'N300,000'
         },
         {
           name: 'Apartments',
           uri: 'https://i.pinimg.com/1200x/a5/c1/f4/a5c1f47f6b739053b9d4d7869c72f3f7.jpg',
+          location: 'Agbowo',
+          price: 'N300,000'
         },
         {
           name: 'Condos',
           uri: 'https://i.pinimg.com/1200x/a5/c1/f4/a5c1f47f6b739053b9d4d7869c72f3f7.jpg',
+          location: 'Agbowo',
+          price: 'N300,000'
         },
         {
             name: 'Lands',
             uri: 'https://i.pinimg.com/1200x/a5/c1/f4/a5c1f47f6b739053b9d4d7869c72f3f7.jpg',
+            location: 'Agbowo',
+            price: 'N300,000'
         },
         {
             name: 'Recently Sold',
             uri: 'https://i.pinimg.com/1200x/a5/c1/f4/a5c1f47f6b739053b9d4d7869c72f3f7.jpg',
+            location: 'Agbowo',
+            price: 'N300,000'
         },
         {
             name: 'Rentals',
             uri: 'https://i.pinimg.com/1200x/a5/c1/f4/a5c1f47f6b739053b9d4d7869c72f3f7.jpg',
+            location: 'Agbowo',
+            price: 'N300,000'
         },
         {
             name: 'Buildings',
             uri: 'https://i.pinimg.com/1200x/a5/c1/f4/a5c1f47f6b739053b9d4d7869c72f3f7.jpg',
+            location: 'Agbowo',
+            price: 'N300,000'
         },
         {
             name: 'Town Houses',
             uri: 'https://i.pinimg.com/1200x/a5/c1/f4/a5c1f47f6b739053b9d4d7869c72f3f7.jpg',
+            location: 'Agbowo',
+            price: 'N300,000'
         },
 
         
     ];
 
-    const HouseTypes = ({ uri, name}) => {
+    const HouseTypes = ({ uri, name, location, price}: Nav) => {
         return (
-            <ImageBackground
-                source={{ uri }}
+            <View
                 style={{
-                    borderWidth: 1,
-                    // marginTop: 20,
-                    marginRight: 10,
-                    marginLeft: 10,
-                    marginBottom: 10,
-                    borderRadius: 5,
-                    borderColor: '#c0c4c2',
-                    width: 339,
-                    height: 100,
+                    backgroundColor: '#fff',
+                    paddingBottom: 10,
+                    paddingTop: 10,
                     display: 'flex',
-                    backgroundColor: '#141414',
-                    opacity: 0.8,
-                    
+                    flexDirection: 'row',
                 }}
             >
-                {/* <Image
+                 <Image
                     source={{uri}}
                     style={{
-                        width: 339,
+                        width: 100,
                         height: 100,
-                        borderColor: '#c0c4c2'
+                        borderColor: '#c0c4c2',
+                        marginLeft: 10,
+                        marginTop: 0,
                     }}
-                 /> */}
+                 /> 
                  <View>
-                  <Text
-                    style={{
-                        paddingTop: 40,
-                        // marginBottom: 15,
-                        // marginLeft: 10,
-                        color: '#fff',
-                        fontSize: 14,
-                        fontWeight: '400',
-                        textAlign: 'center',
-                        justifyContent: 'center',
-                        alignItems: 'center'
-                    }}
-                 >{name}</Text> 
+                    <Text>{name}</Text>
+                    <View
+                        style={{
+                            display: 'flex',
+                            flexDirection: 'row',
+                            justifyContent: 'space-between',
+                        }}
+                    >
+                        <Text>{price}</Text>
+                        <Text>{location}</Text>
+                    </View>
                  </View>
-            </ImageBackground>
+            </View>
         )
     }
 
@@ -119,11 +126,8 @@ const Catelogs = () => {
                  renderItem={({ item, index,  }) => (
                     <Pressable
                         key={item.name}
-                        onPress={() => {
-                            navigation.navigate('HouseComponent')
-                        }}
                     >
-                        <HouseTypes uri={item.uri} name={item.name}    />
+                        <HouseTypes uri={item.uri} name={item.name} location={item.location} price={item.price}    />
                     </Pressable>
                 )}
                 keyExtractor={ item => item?.name}
@@ -133,4 +137,4 @@ const Catelogs = () => {
     )
 }
 
-export { Catelogs };
+export { HouseComponent };

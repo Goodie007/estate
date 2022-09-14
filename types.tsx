@@ -19,6 +19,7 @@ export type RootStackParamList = {
   NotFound: undefined;
   LoginPage: undefined;
   SignUp: undefined;
+  HouseComponent: undefined;
   // Maps: undefined;
   // LoginPage: undefined
 };
