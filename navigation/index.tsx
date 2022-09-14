@@ -24,6 +24,7 @@ import TabTwoScreen from '../screens/TabTwoScreen';
 import { RootStackParamList, RootTabParamList, RootTabScreenProps } from '../types';
 import LinkingConfiguration from './LinkingConfiguration';
 import { Entypo, MaterialIcons } from '@expo/vector-icons';
+import Maps from '../components/UI/Maps';
 // import { MaterialIcons } from '@expo/vector-icons';
 
 export default function Navigation({ colorScheme }: { colorScheme: ColorSchemeName }) {
@@ -50,6 +51,7 @@ function RootNavigator() {
       <Stack.Screen name="NotFound" component={NotFoundScreen} options={{ title: 'Oops!' }} />
       <Stack.Screen name="SignUp" component={SignUpPage} options={{ title: 'Sign Up' }} />
       <Stack.Screen name="LoginPage" component={LoginPage} options={{ title: 'Login' }} />
+     
 
       <Stack.Group screenOptions={{ presentation: 'modal' }}>
         <Stack.Screen name="Modal" component={ModalScreen} />
@@ -72,6 +74,7 @@ function BottomTabNavigator() {
       initialRouteName="TabOne"
       screenOptions={{
         // tabBarActiveTintColor: Colors[colorScheme].tint,
+        tabBarShowLabel: false,
       }}>
        <BottomTab.Screen
         name="Home"
@@ -118,7 +121,30 @@ function BottomTabNavigator() {
             </Pressable>
           ),
         })}
-      />
+       />
+        <BottomTab.Screen
+          name="Maps"
+          component={Maps}
+          options={({ navigation}: RootTabScreenProps<'Maps'>) => ({
+            title: 'Maps',
+            headerTitleAlign: 'center',
+            tabBarIcon: ({ color }) => <Entypo name="map" size={24} color="#0020be" />,
+            headerRight: () => (
+              <Pressable
+                onPress={() => navigation.navigate('Modal')}
+                style={({ pressed }) => ({
+                  opacity: pressed ? 0.5 : 1,
+                })}>
+                <FontAwesome
+                  name="info-circle"
+                  size={25}
+                  color={Colors[colorScheme].text}
+                  style={{ marginRight: 15 }}
+                />
+              </Pressable>
+            ),
+          })}
+        />
       {/* <BottomTab.Screen
         name="TabOne"
         component={TabOneScreen}
@@ -142,19 +168,20 @@ function BottomTabNavigator() {
           ),
         })}
       /> */}
-      <BottomTab.Screen
+      {/* <BottomTab.Screen
         name="TabTwo"
         component={TabTwoScreen}
         options={{
           title: 'Tab Two',
           tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
         }}
-      />
+      /> */}
       <BottomTab.Screen
         name="Login"
         component={LoginScreen}
         options={{
           title: 'Login',
+          headerTitleAlign: 'center',
           tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
         }}
       />
