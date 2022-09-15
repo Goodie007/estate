@@ -23,7 +23,7 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/images/adaptive-icon.png",
+        "foregroundImage": "./assets/images/test.png",
         "backgroundColor": "#000000"
       },
       "package": "com.goodie007.estate"

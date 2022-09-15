@@ -1,3 +1,4 @@
+import { useNavigation } from "@react-navigation/native";
 import React from "react";
 import {View, Text, FlatList, Image, Pressable, Dimensions, useWindowDimensions} from 'react-native';
 
@@ -8,10 +9,13 @@ interface Nav
   location?: string;
   price?: string;
   time?: string;
+  navigation?: any;
 //   style: object;
 }
 
 const HouseComponent = () => {
+    const navigation = useNavigation()
+    
     const nav: Array<Nav> = [
         {
           name: 'Houses',
@@ -73,7 +77,7 @@ const HouseComponent = () => {
         
     ];
 
-    const HouseTypes = ({ uri, name, location, price, time}: Nav) => {
+    const HouseTypes = ({ uri, name, location, price, time,}: Nav) => {
         const { width } = useWindowDimensions()
         return (
             <View
@@ -161,6 +165,9 @@ const HouseComponent = () => {
                  renderItem={({ item, index,  }) => (
                     <Pressable
                         key={item.name}
+                        onPress={() => {
+                            navigation.navigate('Modal')
+                        }}
                     >
                         <HouseTypes uri={item.uri} name={item.name} location={item.location} price={item.price} time={item.time}    />
                     </Pressable>

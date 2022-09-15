@@ -1,3 +1,4 @@
+import { useNavigation } from "@react-navigation/native";
 import React from "react";
 import {View, Text, FlatList, Image, Pressable} from 'react-native';
 
@@ -5,10 +6,12 @@ interface Nav
 {
   name: string;
   uri?: string;
+//   navigation?: any;
 //   style: object;
 }
 
 const Types = () => {
+    const navigation  = useNavigation()
     const nav: Array<Nav> = [
         {
           name: 'Houses',
@@ -29,7 +32,7 @@ const Types = () => {
         
     ];
 
-    const HouseTypes = ({ uri, name}) => {
+    const HouseTypes = ({ uri, name}: Nav) => {
         return (
             <View
                 style={{
@@ -82,6 +85,9 @@ const Types = () => {
                  renderItem={({ item, index,  }) => (
                     <Pressable
                         key={item.name}
+                        onPress={() => {
+                            navigation.navigate('HouseComponent')
+                        }}
                     >
                         <HouseTypes uri={item.uri} name={item.name}    />
                     </Pressable>
