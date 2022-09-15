@@ -25,10 +25,27 @@ const linking: LinkingOptions<RootStackParamList> = {
               TabTwoScreen: 'two',
             },
           },
+          Home: {
+            screens: {
+              Home: 'Home',
+            },
+          },
+          Catelogs: {
+            screens: {
+              Catelog: 'Categories',
+            }
+          },
+          Maps: {
+            screens: {
+              Maps: 'Maps'
+            }
+          }
         },
       },
       Modal: 'modal',
+      ModalComponent: 'modal',
       NotFound: '*',
+      
     },
   },
 };

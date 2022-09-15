@@ -90,7 +90,6 @@ const Houses = () => {
             <View
                 style={{
                     marginTop: 20,
-                    height: height / 2,
                 }}
             >
                 <Text
