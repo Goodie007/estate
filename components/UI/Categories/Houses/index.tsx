@@ -1,8 +1,13 @@
+import { useNavigation } from "@react-navigation/native";
+import { platform } from "os";
 import React from "react";
 import {View, Text, FlatList, Image, Pressable,
     ImageProps as DefaultImageProps,
   ImageURISource,
   ScrollView,
+  useWindowDimensions,
+  Dimensions,
+  Platform,
 } from 'react-native';
 import { Button } from "../../Buttons/Button";
 
@@ -51,6 +56,7 @@ const HousesTypes = ({uri, name, location, ratings}: ItemsProps,) => {
                 marginTop: 5,
                 marginRight: 10,
                 justifyContent: "center",
+                
             }}
         >
             <Image
@@ -76,11 +82,15 @@ const HousesTypes = ({uri, name, location, ratings}: ItemsProps,) => {
 
 
 const Houses = () => {
+    const navigation = useNavigation()
+    const  height = Dimensions.get('window').height
+    const width =  Dimensions.get('window').width
     return(
         <View>
             <View
                 style={{
                     marginTop: 20,
+                    height: height / 2,
                 }}
             >
                 <Text
@@ -95,6 +105,9 @@ const Houses = () => {
                     renderItem={({ item, index,  }) => (
                         <Pressable
                             key={item.name}
+                            onPress={() => {
+                                navigation.navigate('HouseComponent')
+                            }}
                         >
                             <HousesTypes uri={item.uri} name={item.name} ratings={item.ratings} location={item.location}    />
                         </Pressable>
@@ -106,7 +119,7 @@ const Houses = () => {
                  </ScrollView> */}
             </View>
             <Button 
-                onPress={undefined} 
+                onPress={() => navigation.navigate('HouseComponent')} 
                 labelStyle={{ 
                     color: "blue",
                     borderRadius: 5, 

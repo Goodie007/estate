@@ -48,7 +48,7 @@ const Catelogs = () => {
         
     ];
 
-    const HouseTypes = ({ uri, name}) => {
+    const HouseTypes = ({ uri, name}: Nav) => {
         return (
             <ImageBackground
                 source={{ uri }}
