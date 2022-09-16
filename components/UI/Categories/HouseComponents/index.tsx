@@ -166,7 +166,7 @@ const HouseComponent = () => {
                     <Pressable
                         key={item.name}
                         onPress={() => {
-                            navigation.navigate('Modal')
+                            navigation.navigate('CategoryScreen')
                         }}
                     >
                         <HouseTypes uri={item.uri} name={item.name} location={item.location} price={item.price} time={item.time}    />
