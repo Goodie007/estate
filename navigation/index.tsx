@@ -26,6 +26,7 @@ import LinkingConfiguration from './LinkingConfiguration';
 import { Entypo, MaterialIcons } from '@expo/vector-icons';
 import Maps from '../components/UI/Maps';
 import { HouseComponent } from '../components/UI/Categories/HouseComponents';
+import CategoryScreen from '../components/UI/Categories/CategoryScreen';
 // import { MaterialIcons } from '@expo/vector-icons';
 
 export default function Navigation({ colorScheme }: { colorScheme: ColorSchemeName }) {
@@ -52,6 +53,13 @@ function RootNavigator() {
       <Stack.Screen name="NotFound" component={NotFoundScreen} options={{ title: 'Oops!' }} />
       <Stack.Screen name="SignUp" component={SignUpPage} options={{ title: 'Sign Up' }} />
       <Stack.Screen name="LoginPage" component={LoginPage} options={{ title: 'Login' }} />
+      <Stack.Screen 
+        name="CategoryScreen" 
+        component={CategoryScreen} 
+        options={{
+          title: '',
+        }}
+       />
       <Stack.Screen name="HouseComponent" component={HouseComponent}
          options={{ 
           title: 'Houses',
