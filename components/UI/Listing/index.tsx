@@ -13,7 +13,7 @@ export default function Listing() {
                 <Accordion header='My Listing' body=''  />
                 <Accordion header='My Favorites' body=''  />
                 <Accordion header='Account Details' body=''  />
-                <Accordion header='Settings' body=''  />
+                <Accordion header='Settings' body='Settings'  />
                 <Accordion header='Contact Us' body=''  />
                 <Accordion header='Admin Dashboard' body=''  />
            </View>

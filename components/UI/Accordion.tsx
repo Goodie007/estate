@@ -18,7 +18,14 @@ export default function Accordion({header, body}: AccordionProps) {
                 paddingTop: 20,
             }}
         >
-            <View>
+            <View
+                // style={{
+                //     paddingRight: 20,
+                //     paddingLeft: 20,
+                //     backgroundColor: '#000',
+                    
+                // }}
+            >
                 <Pressable
                     onPress={() => setOpen(!open)}
                 >
@@ -52,9 +59,21 @@ export default function Accordion({header, body}: AccordionProps) {
                         </View>
                     </View>
                 </Pressable>
-                {open &&
-                  <Text>{body}</Text>
-                }
+                <View
+                    style={{
+                        marginRight: 25,
+                        marginLeft: 20,
+                        // height: 10,
+                        backgroundColor: '#e1e2e3',
+                        
+                    }}
+                >
+                    <Pressable>
+                        {open &&
+                            <Text>{body}</Text>
+                        }
+                    </Pressable>
+                </View>
             </View>
         </View>
      )
