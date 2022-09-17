@@ -28,6 +28,7 @@ import { Entypo, MaterialIcons, AntDesign } from '@expo/vector-icons';
 import Maps from '../components/UI/Maps';
 import { HouseComponent } from '../components/UI/Categories/HouseComponents';
 import CategoryScreen from '../components/UI/Categories/CategoryScreen';
+import Names from '../components/UI/ProfilePage/Names';
 // import { MaterialIcons } from '@expo/vector-icons';
 
 export default function Navigation({ colorScheme }: { colorScheme: ColorSchemeName }) {
@@ -68,7 +69,7 @@ function RootNavigator() {
           
       }} 
       />
-     
+      <Stack.Screen name="Names" component={Names} options={{title: 'Edit Profile', headerTitleAlign: 'center'}} />
 
       <Stack.Group screenOptions={{ presentation: 'modal' }}>
         <Stack.Screen name="Modal" component={ModalScreen} />

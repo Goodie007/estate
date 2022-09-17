@@ -39,11 +39,15 @@ export default function Accordion({header, body}: AccordionProps) {
                         }} 
                        >
                         <Icons type="List" color='#fff' />
-                        <Text>{header}</Text>
+                        <Text
+                            style={{
+                                fontWeight: '500',
+                            }}
+                        >{header}</Text>
                        </View>
                         <View>{open ?
-                            <AntDesign name="down" size={24} color="black" /> :
-                            <AntDesign name="right" size={24} color="black" />
+                            <AntDesign name="down" size={24} color="#545454" /> :
+                            <AntDesign name="right" size={24} color="#545454" />
                             }
                         </View>
                     </View>

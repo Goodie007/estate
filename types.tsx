@@ -22,6 +22,7 @@ export type RootStackParamList = {
   HouseComponent: undefined;
   ModalComponent: undefined;
   CategoryScreen: undefined;
+  Names: undefined
  
   // Maps: undefined;
   // LoginPage: undefined

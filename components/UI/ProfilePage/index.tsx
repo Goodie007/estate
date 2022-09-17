@@ -1,7 +1,8 @@
 import React, {useState, useEffect} from 'react'
-import { View, Text, Image, Button }  from 'react-native'
+import { View, Text, Image, Button, Pressable }  from 'react-native'
 import { EvilIcons } from '@expo/vector-icons';
 import * as ImagePicker from 'expo-image-picker';
+import { useNavigation } from '@react-navigation/native';
 
 // interface ImageProps {
 //     uri: string;
@@ -10,6 +11,7 @@ import * as ImagePicker from 'expo-image-picker';
 
 export default function ProfilePage() {
     const [image, setImage] = useState(null);
+    const navigation = useNavigation()
 
     const pickImage = async () => {
         // No permissions request is necessary for launching the image library
@@ -60,15 +62,19 @@ export default function ProfilePage() {
              >
                 <EvilIcons name="camera" size={24} color="#fff" onPress={pickImage} />
              </View>
-             <Text
-                style={{
-                    paddingTop: 20,
-                    fontSize: 16,
-                    fontWeight: '500',
-                    color: '#545454',
-                    
-                }}
-             >Mark Kwain</Text>
+             <Pressable
+                onPress={() => navigation.navigate('Names')}
+             >
+                <Text
+                    style={{
+                        paddingTop: 20,
+                        fontSize: 16,
+                        fontWeight: '500',
+                        color: '#545454',
+                        
+                    }}
+                >Mark Kwain</Text>
+             </Pressable>
 
             {/* <View style={{  alignItems: 'center', justifyContent: 'center', backgroundColor: "red" }}>
                 <Button title="Pick an image from camera roll" onPress={pickImage} />

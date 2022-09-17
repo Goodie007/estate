@@ -29,6 +29,7 @@ export default function Listing() {
                     onPress={undefined} 
                     labelStyle={{ 
                         color: "#000",
+                        fontWeight: '500',
                         borderRadius: 5, 
                         borderWidth: 1, 
                         borderColor: "#000",
@@ -43,7 +44,7 @@ export default function Listing() {
                         // position: 'absolute',
                         // top: 10,
                         }}  
-                    label="Show all"
+                    label="Logout"
                 />
           </View>
 
