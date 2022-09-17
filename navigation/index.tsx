@@ -21,9 +21,10 @@ import ModalScreen from '../screens/ModalScreen';
 import NotFoundScreen from '../screens/NotFoundScreen';
 import TabOneScreen from '../screens/TabOneScreen';
 import TabTwoScreen from '../screens/TabTwoScreen';
+import Profile from '../screens/Profile';
 import { RootStackParamList, RootTabParamList, RootTabScreenProps } from '../types';
 import LinkingConfiguration from './LinkingConfiguration';
-import { Entypo, MaterialIcons } from '@expo/vector-icons';
+import { Entypo, MaterialIcons, AntDesign } from '@expo/vector-icons';
 import Maps from '../components/UI/Maps';
 import { HouseComponent } from '../components/UI/Categories/HouseComponents';
 import CategoryScreen from '../components/UI/Categories/CategoryScreen';
@@ -98,7 +99,7 @@ function BottomTabNavigator() {
         options={({ navigation}: RootTabScreenProps<'Home'>) => ({
           title: 'Home',
           headerTitleAlign: 'center',
-          tabBarIcon: ({ color }) => <Entypo name="home" size={24} color="blue" />,
+          tabBarIcon: ({ color }) => <Entypo name="home" size={24} color="#0020be" />,
           headerRight: () => (
             <Pressable
               onPress={() => navigation.navigate('Modal')}
@@ -200,6 +201,15 @@ function BottomTabNavigator() {
           headerTitleAlign: 'center',
           tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
         }}
+      />
+        <BottomTab.Screen
+          name="Profile"
+          component={Profile}
+          options={{
+            title: 'Profile',
+            headerTitleAlign: 'center',
+            tabBarIcon: ({ color }) => <AntDesign name="profile" size={24} color="#0020be" />,
+          }}
       />
     </BottomTab.Navigator>
   );
